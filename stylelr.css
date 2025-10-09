@@ -1,0 +1,117 @@
+/* Form Section (Login / Register) */
+.form-section {
+    background-color: #bfdbfe; /* Light Blue */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.form-section h2 {
+    font-size: 36px;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+}
+
+.form-section form {
+    display: inline-block;
+    text-align: left;
+    background-color: #e0f2fe;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #1e3a8a;
+    font-size: 16px;
+}
+
+.form-section button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1e3a8a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.form-section button:hover {
+    background-color: #2563eb;
+}
+
+.form-section p {
+    margin-top: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.form-section a {
+    color: #1e3a8a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-section a:hover {
+    text-decoration: underline;
+}
+
+#registerMessage, #loginMessage {
+    margin-top: 15px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.features {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.feature-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.feature-link {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.feature {
+    background-color: #e0f2fe;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    height: 100%;
+}
+
+.feature:hover {
+    background-color: #93c5fd;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.feature h3 {
+    margin-bottom: 15px;
+    color: #1e3a8a;
+}
+
+.feature p {
+    color: #0f172a;
+}

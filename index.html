@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathruCare - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylelr.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MathruCare</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="order_medicine.html">Order Medicine</a></li>
+                    <li><a href="consult_doctor.html">Consult Doctor</a></li>
+                    <li><a href="upload_report.html">Upload Report</a></li>
+                    <li><a href="search_symptoms.html">Search Symptoms</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Your Health, Our Care</h2>
+            <p>Order medicines online, consult doctors, upload reports and get suggestions easily.</p>
+            <a href="register.html" class="btn">Get Started</a>
+        </div>
+    </section>
+    <section class="search-symptoms">
+    <div class="container">
+        <h2>Search Symptoms</h2>
+        <p>Type your symptoms to get recommended medicines:</p>
+        <div class="search-box">
+            <input type="text" id="symptomInput" placeholder="Enter symptoms like fever, headache...">
+            <button onclick="searchMedicine()">Search</button>
+        </div>
+        <div id="medicineResults"></div>
+    </div>
+</section>
+
+
+    <section class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature-box">
+                <div class="feature">
+                    <h3>Order Medicine</h3>
+                    <p>Search and order medicines online from the comfort of your home.</p>
+                </div>
+                <div class="feature">
+                    <h3>Consult Doctor</h3>
+                    <p>Book appointments and consult doctors online easily.</p>
+                </div>
+                <div class="feature">
+                    <h3>Upload Reports</h3>
+                    <p>Upload your medical reports and get suggestions based on them.</p>
+                </div>
+                <div class="feature">
+                    <h3>Search Symptoms</h3>
+                    <p>Search your symptoms and find recommended medicines quickly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-info">
+    <div class="container">
+        <h2>Contact & Customer Care</h2>
+        <p>For any queries or assistance, reach out to us:</p>
+        <ul>
+            <li><strong>Phone:</strong> +91 9090909090</li>
+            <li><strong>Email:</strong> support@mathrucare.com</li>
+            <li><strong>Address:</strong> 123 Health Street, Tirupati, Andhra Pradesh, India</li>
+        </ul>
+    </div>
+</section>
+
+    
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MathruCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
