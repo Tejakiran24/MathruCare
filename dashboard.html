@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathruCare - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="site-branding">
+                <img src="images/logo.jpg" alt="MathruCare Logo" class="circular-logo">
+                <h1 class="logo-text">MathruCare</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="order_medicine.html">Order Medicine</a></li>
+                    <li><a href="consult_doctor.html">Consult Doctor</a></li>
+                    <li><a href="upload_report.html">Upload Report</a></li>
+                    <li><a href="search_symptoms.html">Search Symptoms</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <section class="user-profile-summary">
+                <h2 id="welcomeMessage" class="animated-heading">Welcome, User!</h2>
+                <p class="user-tagline">Your health journey, simplified.</p>
+            </section>
+
+            <section class="dashboard-grid">
+                <div class="card dashboard-card quick-action-card">
+                    <h3>Quick Actions</h3>
+                    <div class="dashboard-links">
+                        <a href="order_medicine.html" class="dashboard-btn">
+                            <i class="fas fa-pills"></i> Order Medicine
+                        </a>
+                        <a href="consult_doctor.html" class="dashboard-btn">
+                            <i class="fas fa-user-md"></i> Consult Doctor
+                        </a>
+                        <a href="upload_report.html" class="dashboard-btn">
+                            <i class="fas fa-file-medical"></i> Upload Report
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card dashboard-card recent-activity-card">
+                    <h3>Recent Activity</h3>
+                    <div id="recentActivityContent" class="activity-list">
+                        <p>Loading recent orders, appointments, and reports...</p>
+                    </div>
+                </div>
+
+                <div class="card dashboard-card health-tips-card">
+                    <h3>Health Tip of the Day</h3>
+                    <div class="health-tip-content">
+                        <p>"Stay hydrated! Drinking enough water can improve energy levels and brain function."</p>
+                        <i class="fas fa-lightbulb health-tip-icon"></i>
+                    </div>
+                </div>
+
+                <div class="card dashboard-card personal-stats-card">
+                    <h3>Your Health Stats</h3>
+                    <div class="personal-stats-content">
+                        <p><i class="fas fa-heartbeat"></i> Last BP: <strong>120/80 mmHg</strong></p>
+                        <p><i class="fas fa-tint"></i> Blood Sugar: <strong>95 mg/dL</strong></p>
+                        <p><i class="fas fa-weight"></i> Weight: <strong>70 kg</strong></p>
+                        <a href="#" class="view-all-stats-btn">View All Stats</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MathruCare. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="js/dashboard.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

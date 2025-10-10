@@ -1,0 +1,252 @@
+/* Custom properties for dashboard colors */
+:root {
+    --dashboard-bg: #e0f7fa; /* Very light cyan */
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --primary-blue: #1e3a8a;
+    --secondary-blue: #3b82f6;
+    --accent-green: #4caf50; /* For success/positive elements */
+    --accent-red: #f44336;   /* For alerts/warnings */
+    --text-dark: #333;
+    --text-light: #666;
+}
+
+.dashboard-main {
+    background-color: var(--dashboard-bg);
+    padding: 40px 0 60px 0; /* More padding top/bottom */
+    min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+}
+
+/* User Welcome Section */
+.user-profile-summary {
+    text-align: center;
+    margin-bottom: 50px;
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px var(--card-shadow);
+}
+
+.animated-heading {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.user-tagline {
+    font-size: 1.2em;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease-out 0.2s; /* Delayed animation */
+}
+
+/* Dashboard Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Space between grid items */
+}
+
+/* General Card Styling */
+.dashboard-card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px); /* Lift on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+
+.dashboard-card h3 {
+    font-size: 1.6em;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--dashboard-bg); /* Subtle separator */
+    padding-bottom: 10px;
+}
+
+/* Quick Actions Card */
+.quick-action-card .dashboard-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dashboard-btn {
+    display: block; /* Make buttons take full width */
+    padding: 15px 20px;
+    background-color: var(--secondary-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text and icon */
+    gap: 10px; /* Space between icon and text */
+}
+
+.dashboard-btn:hover {
+    background-color: var(--primary-blue);
+    transform: scale(1.02);
+}
+
+.dashboard-btn i {
+    font-size: 1.3em;
+}
+
+/* Recent Activity Card */
+.recent-activity-card .activity-list {
+    max-height: 200px; /* Constrain height */
+    overflow-y: auto; /* Add scroll if content overflows */
+    padding-right: 5px; /* Space for scrollbar */
+}
+
+.recent-activity-card .activity-list p {
+    background-color: var(--dashboard-bg);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-size: 0.95em;
+    border-left: 4px solid var(--secondary-blue); /* Highlight activity items */
+}
+
+.recent-activity-card .activity-list p:last-child {
+    margin-bottom: 0;
+}
+
+/* Health Tips Card */
+.health-tips-card {
+    background-color: #f0fdf4; /* Lighter green tint for health tips */
+    border: 1px solid var(--accent-green);
+}
+
+.health-tip-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-dark);
+    font-style: italic;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.health-tip-icon {
+    font-size: 2em;
+    color: var(--accent-green);
+    min-width: 40px; /* Prevent text from pushing icon too much */
+}
+
+/* Personal Stats Card */
+.personal-stats-card {
+    background-color: #fefce8; /* Lighter yellow tint for stats */
+    border: 1px solid #facc15; /* Yellow border */
+}
+
+.personal-stats-content p {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.personal-stats-content p i {
+    color: var(--secondary-blue); /* Icons in blue */
+}
+
+.view-all-stats-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #facc15; /* Yellow button */
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-stats-btn:hover {
+    background-color: #eab308;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments for Dashboard Grid */
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .animated-heading {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-main {
+        padding: 30px 0 50px 0;
+    }
+    .user-profile-summary {
+        margin-bottom: 30px;
+        padding: 25px;
+    }
+    .animated-heading {
+        font-size: 2em;
+    }
+    .user-tagline {
+        font-size: 1em;
+    }
+    .dashboard-card h3 {
+        font-size: 1.4em;
+    }
+    .dashboard-btn {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Stack cards on very small screens */
+    }
+    .animated-heading {
+        font-size: 1.8em;
+    }
+}
