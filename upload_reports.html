@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathruCare - Order Medicine</title>
+    <title>MathruCare - Upload Report</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="order_medicine.css">
+    <link rel="stylesheet" href="css/upload_report.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container header-container">
             <div class="site-branding">
-                <img src="logo.jpg" alt="MathruCare Logo" class="circular-logo">
+                <img src="images/logo.jpg" alt="MathruCare Logo" class="circular-logo">
                 <h1 class="logo-text">MathruCare</h1>
             </div>
             <nav>
@@ -31,15 +31,21 @@
 
     <main class="main-content">
         <div class="container">
-            <section class="order-medicine-section">
-                <h2>Order Medicine</h2>
-                <div class="search-box">
-                    <input type="text" id="medicineSearchInput" placeholder="Search for medicines...">
-                    <button onclick="searchMedicines()"><i class="fas fa-search"></i> Search</button>
-                </div>
-
-                <div id="medicineResults" class="medicine-results-grid">
-                </div>
+            <section class="upload-section">
+                <h2>Upload Medical Report</h2>
+                <p class="section-description">Securely upload your medical reports for a doctor's review.</p>
+                <form id="uploadForm" class="upload-form">
+                    <div class="form-group">
+                        <label for="reportFile">Select Report File</label>
+                        <input type="file" id="reportFile" name="reportFile" accept=".jpg,.jpeg,.png,.pdf" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportDescription">Description</label>
+                        <textarea id="reportDescription" name="reportDescription" rows="4" placeholder="e.g., Blood test results from Oct 2025"></textarea>
+                    </div>
+                    <button type="submit" class="upload-btn"><i class="fas fa-upload"></i> Upload</button>
+                </form>
+                <div id="uploadMessage" class="message-area"></div>
             </section>
         </div>
     </main>
@@ -50,7 +56,7 @@
         </div>
     </footer>
     
-    <script src="js/script.js"></script>
-    <script src="js/order_medicine.js"></script>
+    <script src="script.js"></script>
+    <script src="js/upload_report.js"></script>
 </body>
 </html>

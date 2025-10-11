@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathruCare - Order Medicine</title>
+    <title>MathruCare - Consult Doctor</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="order_medicine.css">
+    <link rel="stylesheet" href="css/consult_doctor.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container header-container">
             <div class="site-branding">
-                <img src="logo.jpg" alt="MathruCare Logo" class="circular-logo">
+                <img src="images/logo.jpg" alt="MathruCare Logo" class="circular-logo">
                 <h1 class="logo-text">MathruCare</h1>
             </div>
             <nav>
@@ -31,15 +31,15 @@
 
     <main class="main-content">
         <div class="container">
-            <section class="order-medicine-section">
-                <h2>Order Medicine</h2>
+            <section class="consult-section">
+                <h2>Consult a Doctor</h2>
+                <p class="section-description">Find a specialist who can help with your health concerns.</p>
                 <div class="search-box">
-                    <input type="text" id="medicineSearchInput" placeholder="Search for medicines...">
-                    <button onclick="searchMedicines()"><i class="fas fa-search"></i> Search</button>
+                    <input type="text" id="doctorSearchInput" placeholder="Search by specialty or name...">
+                    <button onclick="searchDoctors()"><i class="fas fa-search"></i> Search</button>
                 </div>
-
-                <div id="medicineResults" class="medicine-results-grid">
-                </div>
+                <div id="doctorResults" class="doctor-results-grid">
+                    </div>
             </section>
         </div>
     </main>
@@ -50,7 +50,7 @@
         </div>
     </footer>
     
-    <script src="js/script.js"></script>
-    <script src="js/order_medicine.js"></script>
+    <script src="script.js"></script>
+    <script src="js/consult_doctor.js"></script>
 </body>
 </html>

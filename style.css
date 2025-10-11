@@ -19,6 +19,11 @@
     font-family: Arial, sans-serif;
 }
 
+body {
+    background-color: var(--light-blue);
+    color: var(--text-dark);
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -133,6 +138,10 @@ header nav ul li a:hover {
 
 .search-box {
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .search-box input {
@@ -153,7 +162,6 @@ header nav ul li a:hover {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    margin-left: 10px;
     transition: background-color 0.3s ease;
 }
 
@@ -201,6 +209,14 @@ header nav ul li a:hover {
     color: var(--text-dark);
 }
 
+.form-section label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
 .form-section button {
     width: 100%;
     padding: 12px;
@@ -236,7 +252,7 @@ header nav ul li a:hover {
 
 #registerMessage, #loginMessage {
     margin-top: 15px;
-    color: #ef4444; /* A specific red for error messages */
+    color: #ef4444;
     font-weight: bold;
     text-align: center;
 }
@@ -292,66 +308,6 @@ header nav ul li a:hover {
     color: var(--text-dark);
 }
 
-/* Contact / Customer Care Section */
-.contact-info {
-    background-color: var(--secondary-blue);
-    color: var(--text-light);
-    padding: 50px 0;
-    text-align: center;
-}
-
-.contact-info h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.contact-info p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.contact-info ul {
-    list-style: none;
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-/* Footer */
-footer {
-    background-color: var(--primary-blue);
-    color: var(--text-light);
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .site-branding {
-        margin-bottom: 15px;
-        margin-right: 0;
-        justify-content: center;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-
-    .feature-box, .dashboard-grid {
-        grid-template-columns: 1fr;
-    }
-}
 /* Order Medicine Page Styles */
 .order-medicine-section {
     padding: 60px 0;
@@ -364,38 +320,6 @@ footer {
     font-size: 36px;
     color: var(--primary-blue);
     margin-bottom: 30px;
-}
-
-.search-box {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 40px;
-}
-
-.search-box input {
-    padding: 12px;
-    width: 50%;
-    max-width: 500px;
-    border-radius: 5px;
-    border: 1px solid var(--border-color);
-    font-size: 16px;
-    color: var(--text-dark);
-}
-
-.search-box button {
-    padding: 12px 25px;
-    background-color: var(--primary-blue);
-    color: var(--text-light);
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.search-box button:hover {
-    background-color: var(--hover-color);
 }
 
 .medicine-results-grid {
@@ -458,6 +382,195 @@ footer {
     background-color: var(--hover-color);
 }
 
+/* Contact / Customer Care Section */
+.contact-info {
+    background-color: var(--secondary-blue);
+    color: var(--text-light);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.contact-info ul {
+    list-style: none;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .site-branding {
+        margin-bottom: 15px;
+        margin-right: 0;
+        justify-content: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .feature-box, .dashboard-grid, .medicine-results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-box {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .search-box input, .search-box button {
+        width: 80%;
+    }
+}
+/* Consult Doctor Page Styles */
+.consult-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--light-blue);
+    color: var(--text-dark);
+}
+
+.consult-section h2 {
+    font-size: 36px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.section-description {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.search-box input {
+    padding: 12px;
+    width: 50%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.search-box button {
+    padding: 12px 25px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: var(--hover-color);
+}
+
+.doctor-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.doctor-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-card .doctor-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.doctor-card h3 {
+    font-size: 22px;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}
+
+.doctor-card .specialty {
+    font-size: 16px;
+    color: var(--secondary-blue);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.doctor-card .location, .doctor-card .experience {
+    font-size: 14px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.doctor-card .book-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--secondary-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.doctor-card .book-btn:hover {
+    background-color: var(--hover-color);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .search-box {
@@ -470,5 +583,102 @@ footer {
     }
     .search-box button {
         width: 80%;
+    }
+}
+/* upload_report.css */
+
+.upload-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--light-blue);
+    color: var(--text-dark);
+}
+
+.upload-section h2 {
+    font-size: 36px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.section-description {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: var(--primary-blue);
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="file"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.upload-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--secondary-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.upload-btn i {
+    margin-right: 10px;
+}
+
+.message-area {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .upload-form {
+        padding: 20px;
+    }
+    .upload-btn {
+        font-size: 16px;
+        padding: 12px;
     }
 }

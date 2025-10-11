@@ -1,4 +1,8 @@
-// Sample medicine database
+// ====================================================================
+// CORE SITE FUNCTIONS (Homepage Search, Login, Register)
+// ====================================================================
+
+// Sample medicine database for the homepage symptom search
 const medicineDatabase = {
     fever: ["Paracetamol", "Ibuprofen"],
     headache: ["Aspirin", "Paracetamol"],
@@ -10,22 +14,21 @@ function searchMedicine() {
     const input = document.getElementById("symptomInput").value.toLowerCase().trim();
     const resultsDiv = document.getElementById("medicineResults");
 
-    if(input === "") {
+    if (input === "") {
         resultsDiv.innerHTML = "Please enter a symptom.";
         return;
     }
 
-    if(medicineDatabase[input]) {
+    if (medicineDatabase[input]) {
         const medicines = medicineDatabase[input];
         resultsDiv.innerHTML = `Recommended Medicines: <b>${medicines.join(", ")}</b>`;
     } else {
         resultsDiv.innerHTML = "No medicines found for this symptom.";
     }
 }
-// Simple front-end registration and login (for demo purposes)
-let users = [];
 
-document.getElementById("registerForm")?.addEventListener("submit", function(e){
+// Handles user registration (communicates with the back-end)
+document.getElementById("registerForm")?.addEventListener("submit", async function(e) {
     e.preventDefault();
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -33,83 +36,119 @@ document.getElementById("registerForm")?.addEventListener("submit", function(e){
     const confirmPassword = document.getElementById("confirmPassword").value;
     const message = document.getElementById("registerMessage");
 
-    if(password !== confirmPassword){
+    if (password !== confirmPassword) {
         message.textContent = "Passwords do not match!";
         return;
     }
 
-    // Save user in array (later replace with database)
-    users.push({name, email, password});
-    message.style.color = "green";
-    message.textContent = "Registration successful! You can now login.";
-    this.reset();
+    try {
+        const response = await fetch('http://localhost:3000/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            message.style.color = "green";
+            message.textContent = data.message;
+            this.reset();
+            window.location.href = 'login.html';
+        } else {
+            message.style.color = "red";
+            message.textContent = data.message || "Registration failed. Please try again.";
+        }
+    } catch (error) {
+        message.style.color = "red";
+        message.textContent = "An error occurred. Check server connection.";
+        console.error('Fetch error:', error);
+    }
 });
 
-document.getElementById("loginForm")?.addEventListener("submit", function(e){
+// Handles user login (communicates with the back-end)
+document.getElementById("loginForm")?.addEventListener("submit", async function(e) {
     e.preventDefault();
     const email = document.getElementById("loginEmail").value.trim();
     const password = document.getElementById("loginPassword").value;
     const message = document.getElementById("loginMessage");
 
-    const user = users.find(u => u.email === email && u.password === password);
-    if(user){
-        message.style.color = "green";
-        message.textContent = `Welcome, ${user.name}!`;
-        this.reset();
-    } else {
+    try {
+        const response = await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            message.style.color = "green";
+            message.textContent = data.message;
+            window.location.href = 'dashboard.html';
+        } else {
+            message.style.color = "red";
+            message.textContent = data.message || "Invalid email or password!";
+        }
+    } catch (error) {
         message.style.color = "red";
-        message.textContent = "Invalid email or password!";
+        message.textContent = "An error occurred. Check server connection.";
+        console.error('Fetch error:', error);
     }
 });
+
+// ====================================================================
+// ORDER MEDICINE & CONSULT DOCTOR (Search functionality for both pages)
+// ====================================================================
 document.addEventListener("DOMContentLoaded", function() {
+    const medicineSearchInput = document.getElementById('medicineSearchInput');
+    const medicineResultsGrid = document.getElementById('medicineResults');
+    const doctorSearchInput = document.getElementById('doctorSearchInput');
+    const doctorResultsGrid = document.getElementById('doctorResults');
 
-    const searchInput = document.getElementById('medicineSearchInput');
-    const resultsGrid = document.getElementById('medicineResults');
-
-    // Attach the search function to the button and the Enter key
-    document.querySelector('.search-box button').addEventListener('click', searchMedicines);
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            searchMedicines();
-        }
-    });
+    const searchMedicinesButton = document.querySelector('#order_medicine.html .search-box button');
+    if (searchMedicinesButton) {
+        searchMedicinesButton.addEventListener('click', searchMedicines);
+    }
+    if (medicineSearchInput) {
+        medicineSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchMedicines();
+            }
+        });
+    }
 
     async function searchMedicines() {
-        const query = searchInput.value.trim();
-        resultsGrid.innerHTML = ''; // Clear previous results
+        const query = medicineSearchInput.value.trim();
+        medicineResultsGrid.innerHTML = '';
 
         if (query === '') {
-            resultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">Please enter a medicine name to search.</p>';
+            medicineResultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">Please enter a medicine name to search.</p>';
             return;
         }
 
-        // Display a loading message while fetching data
-        resultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">Searching for medicines...</p>';
+        medicineResultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">Searching for medicines...</p>';
 
         try {
-            // In a real application, this would be an API call to your backend
-            // const response = await fetch(`http://localhost:3000/api/medicines/search?query=${query}`);
-            // const medicines = await response.json();
-
-            // --- DEMO MOCK DATA (REPLACE WITH REAL API CALL) ---
             const mockMedicines = [
                 { id: 1, name: "Paracetamol 500mg", description: "Used for pain relief and fever.", price: 15.00 },
                 { id: 2, name: "Ibuprofen 200mg", description: "A nonsteroidal anti-inflammatory drug (NSAID).", price: 25.50 },
                 { id: 3, name: "Cetirizine 10mg", description: "An antihistamine used to relieve allergy symptoms.", price: 10.75 }
             ];
             
-            // Simulate a filter based on the search query
             const filteredMedicines = mockMedicines.filter(med => 
                 med.name.toLowerCase().includes(query.toLowerCase())
             );
 
-            // Clear the loading message
-            resultsGrid.innerHTML = '';
+            medicineResultsGrid.innerHTML = '';
 
             if (filteredMedicines.length === 0) {
-                resultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">No medicines found. Please try a different search term.</p>';
+                medicineResultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">No medicines found. Please try a different search term.</p>';
             } else {
-                // Render the medicine cards
                 filteredMedicines.forEach(medicine => {
                     const card = document.createElement('div');
                     card.classList.add('medicine-card');
@@ -119,12 +158,99 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div class="price">₹${medicine.price.toFixed(2)}</div>
                         <button class="order-btn" data-id="${medicine.id}">Add to Cart</button>
                     `;
-                    resultsGrid.appendChild(card);
+                    medicineResultsGrid.appendChild(card);
                 });
             }
         } catch (error) {
             console.error('Failed to fetch medicines:', error);
-            resultsGrid.innerHTML = '<p style="text-align: center; color: red;">An error occurred while searching. Please try again later.</p>';
+            medicineResultsGrid.innerHTML = '<p style="text-align: center; color: red;">An error occurred while searching. Please try again later.</p>';
         }
+    }
+
+    const searchDoctorsButton = document.querySelector('#consult_doctor.html .search-box button');
+    if (searchDoctorsButton) {
+        searchDoctorsButton.addEventListener('click', searchDoctors);
+    }
+    if (doctorSearchInput) {
+        doctorSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchDoctors();
+            }
+        });
+    }
+
+    async function searchDoctors() {
+        const query = doctorSearchInput.value.trim();
+        doctorResultsGrid.innerHTML = '';
+
+        if (query === '') {
+            doctorResultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">Please enter a specialty or doctor\'s name.</p>';
+            return;
+        }
+
+        doctorResultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">Searching for doctors...</p>';
+
+        try {
+            const mockDoctors = [
+                { id: 1, name: "Dr. Anya Sharma", specialty: "Cardiologist", experience: "15 years", image: "images/doctor1.jpg" },
+                { id: 2, name: "Dr. Rajesh Kumar", specialty: "Pediatrician", experience: "10 years", image: "images/doctor2.jpg" },
+                { id: 3, name: "Dr. Priya Singh", specialty: "Dermatologist", experience: "8 years", image: "images/doctor3.jpg" }
+            ];
+
+            const filteredDoctors = mockDoctors.filter(doctor =>
+                doctor.specialty.toLowerCase().includes(query.toLowerCase()) ||
+                doctor.name.toLowerCase().includes(query.toLowerCase())
+            );
+
+            doctorResultsGrid.innerHTML = '';
+
+            if (filteredDoctors.length === 0) {
+                doctorResultsGrid.innerHTML = '<p style="text-align: center; color: var(--text-dark);">No doctors found. Please try a different search term.</p>';
+            } else {
+                filteredDoctors.forEach(doctor => {
+                    const card = document.createElement('div');
+                    card.classList.add('doctor-card');
+                    card.innerHTML = `
+                        <img src="${doctor.image}" alt="${doctor.name}" class="doctor-image">
+                        <h3>${doctor.name}</h3>
+                        <p class="specialty">${doctor.specialty}</p>
+                        <p class="experience">${doctor.experience} experience</p>
+                        <button class="book-btn" data-id="${doctor.id}">Book an Appointment</button>
+                    `;
+                    doctorResultsGrid.appendChild(card);
+                });
+            }
+        } catch (error) {
+            console.error('Failed to fetch doctors:', error);
+            doctorResultsGrid.innerHTML = '<p style="text-align: center; color: red;">An error occurred while searching. Please try again later.</p>';
+        }
+    }
+});
+
+
+// ====================================================================
+// UPLOAD REPORT JS
+// This code handles the form submission for uploading a medical report.
+// ====================================================================
+document.getElementById('uploadForm')?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const messageArea = document.getElementById('uploadMessage');
+    
+    messageArea.innerHTML = 'Uploading...';
+    messageArea.style.color = 'black';
+
+    try {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        messageArea.style.color = 'green';
+        messageArea.textContent = 'Report uploaded successfully!';
+        form.reset();
+
+    } catch (error) {
+        messageArea.style.color = 'red';
+        messageArea.textContent = 'An error occurred during the upload.';
+        console.error('Upload error:', error);
     }
 });

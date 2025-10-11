@@ -234,4 +234,7 @@
     .search-box button {
         width: 80%;
     }
+    .medicine-results-grid {
+        grid-template-columns: 1fr;
+    }
 }
