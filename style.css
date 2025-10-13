@@ -682,3 +682,40 @@ footer {
         padding: 12px;
     }
 }
+/* About Us and Contact Us Page Styles */
+.about-us-section, .contact-us-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--light-blue);
+    color: var(--text-dark);
+}
+
+.about-us-section h2, .contact-us-section h2 {
+    font-size: 36px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.about-us-section p, .contact-us-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-details {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--box-shadow);
+    display: inline-block;
+    text-align: left;
+}
+
+.contact-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
