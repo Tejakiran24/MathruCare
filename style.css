@@ -844,7 +844,6 @@ footer {
     color: #fff;
     margin-top: 50px;
 }
-/
 /* =========================
    Root Variables
 ========================= */
@@ -964,4 +963,143 @@ body {
         width: 90%;
         padding: 20px;
     }
+}
+/* =========================
+   Registration Form Styles
+========================= */
+
+/* The main body/background color is assumed to be set in your main stylesheet */
+
+/* Styles for the Form Container (the "card" look) */
+.form-container {
+    max-width: 400px; /* Limits the form width for a clean look */
+    margin: 50px auto; /* Centers the card horizontally and adds top/bottom spacing */
+    padding: 30px;
+    background-color: var(--card-bg); /* Lightest blue background for the card */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--box-shadow); /* Soft shadow for depth */
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 30px;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+}
+
+/* Styles for the form itself, ensuring text alignment */
+.form-container form {
+    text-align: left;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+/* Styles for all input fields */
+.form-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.form-container input:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+}
+
+/* Styles for the Register button */
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.form-container button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Styles for the message and link area */
+.form-container p {
+    margin-top: 15px;
+    font-size: 16px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.form-container a {
+    color: var(--primary-blue);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+#registerMessage {
+    color: #ef4444; /* Standard error color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .form-container {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+}
+/* Change Password Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 90%;
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content button {
+  margin: 8px;
+  padding: 8px 15px;
+  border: none;
+  background-color: #1e3a8a;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #3b82f6;
 }

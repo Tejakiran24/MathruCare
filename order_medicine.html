@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="site-branding">
@@ -18,7 +19,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="order_medicine.html">Order Medicine</a></li>
+                    <li><a href="order_medicine.html" class="active">Order Medicine</a></li>
                     <li><a href="consult_doctor.html">Consult Doctor</a></li>
                     <li><a href="upload_report.html">Upload Report</a></li>
                     <li><a href="search_symptoms.html">Search Symptoms</a></li>
@@ -29,27 +30,34 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
             <section class="order-medicine-section">
                 <h2>Order Medicine</h2>
+
+                <!-- Search Box -->
                 <div class="search-box">
-                    <input type="text" id="medicineSearchInput" placeholder="Search for medicines...">
+                    <input type="text" id="medicineSearchInput" placeholder="Type symptom or medicine name...">
                     <button onclick="searchMedicines()"><i class="fas fa-search"></i> Search</button>
                 </div>
 
+                <!-- Search Results -->
                 <div id="medicineResults" class="medicine-results-grid">
+                    <!-- Medicine cards will appear here -->
                 </div>
             </section>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025 MathruCare. All rights reserved.</p>
         </div>
     </footer>
-    
+
+    <!-- Scripts -->
     <script src="js/script.js"></script>
     <script src="js/order_medicine.js"></script>
 </body>
