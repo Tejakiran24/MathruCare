@@ -1103,3 +1103,183 @@ body {
 .modal-content button:hover {
   background-color: #3b82f6;
 }
+/* =========================
+   Dashboard Specific Styles
+   (Assumes core variables from style.css are loaded)
+========================= */
+
+.dashboard-main {
+    /* Main section takes up the remaining vertical space */
+    padding: 30px 0;
+    background-color: var(--light-blue);
+}
+
+/* User Profile & Welcome Message */
+.user-profile-summary {
+    text-align: center;
+    padding: 20px 0 40px;
+}
+
+.animated-heading {
+    font-size: 42px;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+    /* Basic animation to draw attention on load */
+    animation: fadeInDown 1s ease-out;
+}
+
+.user-tagline {
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+/* Dashboard Grid Layout */
+.dashboard-grid {
+    display: grid;
+    /* Creates a 2-column layout on large screens, with equal width columns */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px; /* Space between the cards */
+    padding-bottom: 50px;
+}
+
+/* General Card Styling */
+.dashboard-card {
+    background-color: var(--card-bg); /* Light card background */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensures all cards in a row have equal height */
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card h3 {
+    font-size: 24px;
+    color: var(--secondary-blue);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Quick Actions Card Styles */
+.quick-action-card {
+    /* Spans two columns on wider screens to make it prominent */
+    grid-column: 1 / -1; 
+}
+
+.dashboard-links {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.dashboard-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 15px 20px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border-radius: 8px;
+    font-weight: bold;
+    flex-grow: 1; /* Makes buttons grow to fill space */
+    min-width: 150px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-btn i {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.dashboard-btn:hover {
+    background-color: var(--hover-color);
+}
+
+/* Recent Activity & Health Tips Styles */
+.activity-list p {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.health-tip-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-style: italic;
+    color: var(--text-dark);
+}
+
+.health-tip-icon {
+    font-size: 36px;
+    color: gold; /* Yellow/Gold color for the lightbulb icon */
+}
+
+/* Personal Stats Card Styles */
+.personal-stats-content p {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-dark);
+}
+
+.personal-stats-content i {
+    margin-right: 10px;
+    color: var(--secondary-blue);
+}
+
+.view-all-stats-btn {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.view-all-stats-btn:hover {
+    color: var(--hover-color);
+}
+
+/* =========================
+   Animations
+========================= */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   Responsive Adjustments
+========================= */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        /* On small screens, stack everything into a single column */
+        grid-template-columns: 1fr;
+    }
+
+    .quick-action-card {
+        grid-column: 1 / 1; /* Reset column span */
+    }
+
+    .dashboard-links {
+        flex-direction: column;
+    }
+
+    .dashboard-btn {
+        width: 100%;
+    }
+}
