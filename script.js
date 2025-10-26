@@ -1,7 +1,3 @@
-// ====================================================================
-// CORE SITE FUNCTIONS (Homepage Search, Login, Register)
-// ====================================================================
-
 // Sample medicine database for the homepage symptom search
 const medicineDatabase = {
     fever: ["Paracetamol", "Ibuprofen"],
@@ -144,14 +140,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    if (medicineSearchInput) {
-        medicineSearchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') searchMedicines();
-        });
-    }
+        // small helper to attach Enter key handlers to inputs (reduces duplicate code)
+        function attachEnterKey(inputEl, handler) {
+            if (!inputEl) return;
+            inputEl.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') handler();
+            });
+        }
 
-    const medSearchBtn = document.querySelector('#order_medicine .search-box button');
-    if (medSearchBtn) medSearchBtn.addEventListener('click', searchMedicines);
+        attachEnterKey(medicineSearchInput, searchMedicines);
+        const medSearchBtn = document.querySelector('#order_medicine .search-box button');
+        if (medSearchBtn) medSearchBtn.addEventListener('click', searchMedicines);
 
     // Doctor search
     const doctorSearchInput = document.getElementById('doctorSearchInput');
@@ -195,12 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    if (doctorSearchInput) {
-        doctorSearchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') searchDoctors();
-        });
-    }
-
+    attachEnterKey(doctorSearchInput, searchDoctors);
     const doctorSearchBtn = document.querySelector('#consult_doctor .search-box button');
     if (doctorSearchBtn) doctorSearchBtn.addEventListener('click', searchDoctors);
 });

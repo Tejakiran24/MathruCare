@@ -1,3 +1,292 @@
+/*
+  MathruCare - Clean consolidated stylesheet
+  - Full-bleed layout (no left gap)
+  - Features: single column, smaller spacing
+  - Removed duplicate/wasted rules; kept legacy aliases for compatibility
+*/
+
+:root{
+  --bg: #f8fbff;
+  --surface: #ffffff;
+  --muted: #f1f5f9;
+  --primary: #0f4c81;      /* deep indigo/blue */
+  --primary-600:#1e63b7;
+  --accent: #06b6d4;       /* teal/cyan */
+  --accent-600:#0891b2;
+  --success:#16a34a;
+  --danger:#ef4444;
+  --text:#0f172a;
+  --subtext:#475569;
+  --card-radius:12px;
+  --card-shadow: 0 10px 30px rgba(15,23,42,0.06);
+}
+
+/* ------------------ Reset & base ------------------ */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Make the main container full-bleed (removes left spacing) */
+.container{width:100%;max-width:none;margin:0;padding-left:0;padding-right:0}
+
+/* optional inner centered wrapper if you need a constrained center block: */
+.center-wrap{width:94%;max-width:1200px;margin:0 auto;padding:0 12px}
+
+/* helpers */
+.hidden{display:none!important}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ------------------ Header / Nav ------------------ */
+header{background:linear-gradient(90deg,var(--primary),var(--primary-600));color:#fff;position:sticky;top:0;z-index:60}
+.header-container{display:flex;align-items:center;justify-content:flex-start;gap:20px;padding:12px 18px}
+.site-branding{display:flex;align-items:center;gap:12px}
+.circular-logo{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.12)}
+.logo-text{font-weight:700;font-size:1.35rem;color:#fff}
+nav ul.nav-links{display:flex;gap:12px;list-style:none;margin-left:18px}
+nav ul.nav-links li a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+nav ul.nav-links li a:hover,nav ul.nav-links li a.active{background:rgba(255,255,255,0.06)}
+
+/* ------------------ Hero ------------------ */
+.hero{padding:64px 0;text-align:left;background:linear-gradient(0deg, rgba(15,76,129,0.95), rgba(30,99,183,0.85)), url('hospital-bg.jpg') center/cover no-repeat;color:#fff}
+.hero .center-wrap{padding-left:18px}
+.hero h2{font-size:2.1rem;margin-bottom:8px}
+.hero p{font-size:1rem;margin-bottom:18px;color:rgba(255,255,255,0.95)}
+.btn-primary{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+
+/* ------------------ Search Symptoms ------------------ */
+.search-symptoms{padding:28px 0;background:var(--muted)}
+.search-symptoms .center-wrap{display:block}
+.search-box{display:flex;gap:10px;justify-content:flex-start;align-items:center}
+.search-box input{padding:10px 14px;border-radius:999px;border:1px solid rgba(15,23,42,0.06);min-width:260px}
+.search-box button{padding:10px 14px;border-radius:999px;border:none;background:var(--primary);color:#fff;cursor:pointer}
+
+#medicineResults{margin-top:12px;color:var(--subtext);font-weight:600}
+
+/* ------------------ Features (single-column, reduced spacing) ------------------ */
+.features{padding:30px 0;background:transparent}
+.features h2{color:var(--primary);margin-bottom:8px}
+.feature-grid,.feature-box{display:grid;grid-template-columns:1fr;gap:10px}
+.feature,.feature-card{background:var(--surface);padding:12px;border-radius:var(--card-radius);box-shadow:var(--card-shadow);text-align:left;transition:transform .18s}
+.feature img,.feature-card img{max-width:100px;margin-bottom:8px;border-radius:8px}
+.feature h3{color:var(--primary);margin:6px 0}
+.feature p{color:var(--subtext);font-size:.95rem;margin:6px 0}
+
+/* reduce spacing inside feature cards */
+.feature{padding:14px}
+
+/* ------------------ Order Medicine ------------------ */
+.order-medicine-section{padding:28px 0;background:var(--muted)}
+.medicine-results-grid{display:grid;grid-template-columns:1fr;gap:12px;padding:0 6px}
+.medicine-card{background:var(--surface);padding:12px;border-radius:10px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:8px}
+.medicine-card h3{margin:0;color:var(--primary)}
+.medicine-card p{color:var(--subtext);font-size:.95rem}
+.medicine-card .price{font-weight:700;color:var(--accent)}
+.medicine-card .order-btn{margin-top:auto;padding:8px;border-radius:8px;border:none;background:var(--primary);color:#fff}
+
+/* ------------------ Consult Doctor ------------------ */
+.consult-section{padding:28px 0}
+.doctor-results-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.doctor-card{background:var(--surface);padding:12px;border-radius:10px;box-shadow:var(--card-shadow);display:flex;flex-direction:column}
+.doctor-card .doctor-image{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:8px}
+.doctor-card h3{margin:0;color:var(--primary)}
+.doctor-card .specialty{color:var(--accent);font-weight:700}
+.doctor-card .experience,.doctor-card .location{color:var(--subtext);font-size:.9rem}
+.doctor-card .book-btn{margin-top:auto;padding:10px;border-radius:8px;border:none;background:var(--accent);color:#fff}
+
+/* ------------------ Upload / Forms ------------------ */
+.upload-section{padding:28px 0;background:var(--muted)}
+.upload-form{max-width:720px;margin:0 auto;background:var(--surface);padding:14px;border-radius:10px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:10px}
+.form-section,.register-section{padding:20px 0}
+.form-section form,.register-section form,.form-container{background:var(--surface);max-width:420px;margin:0 auto;padding:12px;border-radius:10px;box-shadow:var(--card-shadow);text-align:left}
+.form-section input,.register-section input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);margin-bottom:8px}
+.form-section button,.register-section button{width:100%;padding:10px;border-radius:8px;border:none;background:var(--primary);color:#fff}
+
+/* ------------------ Dashboard / Misc ------------------ */
+.dashboard-main{padding:20px 0}
+.dashboard-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.dashboard-card{background:var(--surface);padding:12px;border-radius:10px;box-shadow:var(--card-shadow)}
+
+/* ------------------ Contact & Footer ------------------ */
+.contact-info{padding:18px 0;background:var(--primary);color:#fff;text-align:left}
+footer{background:linear-gradient(90deg,var(--primary),var(--primary-600));color:#fff;padding:18px 0;text-align:center}
+
+/* ------------------ Legacy aliases (keeps pages working) ------------------ */
+.feature-box{grid-template-columns:1fr}
+.medicine-results-grid,.doctor-results-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.upload-btn{background:var(--primary);color:#fff;padding:8px;border-radius:8px;border:none}
+
+/* ------------------ Responsive tweaks ------------------ */
+@media (min-width:900px){
+  /* on wide screens, keep features single-column per request but reduce visual density */
+  .hero{padding:80px 0}
+}
+@media (max-width:600px){
+  .header-container{flex-direction:column;align-items:flex-start;padding:12px}
+  .search-box{flex-direction:column;align-items:flex-start}
+  .center-wrap{width:94%;padding-left:12px}
+}
+/*
+  Consolidated stylesheet for MathruCare
+  - De-duplicated rules
+  - Keeps all feature selectors used by other pages
+  - Modern color system, improved spacing and responsive layout
+*/
+
+:root{
+  --bg: #f8fbff;
+  --surface: #ffffff;
+  --muted: #f1f5f9;
+  --primary: #0f4c81;      /* deep indigo/blue */
+  --primary-600: #1e63b7;
+  --accent: #06b6d4;       /* teal/cyan */
+  --accent-600: #0891b2;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --text: #0f172a;
+  --subtext: #475569;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(15,23,42,0.06);
+}
+
+/* ========== Reset & Base ========== */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+.container{width:100%;max-width:1200px;margin:0 auto;padding-left:0;padding-right:0}
+
+/* Utility helpers */
+.hidden{display:none!important}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ========== Header / Nav ========== */
+header{
+  background:linear-gradient(90deg,var(--primary),var(--primary-600));
+  color: #fff; position:sticky;top:0;z-index:60;box-shadow:0 6px 18px rgba(12,20,50,0.08)
+}
+.header-container{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+.site-branding{display:flex;align-items:center;gap:12px}
+.circular-logo{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.12)}
+.logo-text{font-weight:700;font-size:1.25rem;color: #fff}
+
+nav ul.nav-links{display:flex;gap:12px;list-style:none;align-items:center}
+nav ul.nav-links li a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;transition:all .18s}
+nav ul.nav-links li a:hover,nav ul.nav-links li a.active{background:rgba(255,255,255,0.08)}
+
+/* ========== Hero ========== */
+.hero{padding:88px 0;text-align:center;background:linear-gradient(0deg, rgba(15,76,129,0.95), rgba(30,99,183,0.85)), url('hospital-bg.jpg') center/cover no-repeat;color:#fff}
+.hero h2{font-size:2.4rem;line-height:1.05;margin-bottom:12px}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,0.9);margin-bottom:20px}
+.btn, .btn-primary{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:28px;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(6,182,212,0.12);transition:transform .15s ease,box-shadow .15s}
+.btn:hover,.btn-primary:hover{transform:translateY(-3px)}
+
+/* ========== Search Section (Symptoms) ========== */
+.search-symptoms{padding:56px 0;background:var(--muted);text-align:center}
+.search-symptoms h2{color:var(--primary);margin-bottom:12px}
+.search-box{display:flex;gap:10px;justify-content:center;align-items:center}
+.search-box input{width:60%;max-width:520px;padding:12px 16px;border-radius:999px;border:1px solid rgba(15,23,42,0.06);background:#fff}
+.search-box button{padding:10px 18px;border-radius:999px;border:none;background:var(--primary);color:#fff;cursor:pointer}
+
+#medicineResults{margin-top:18px;color:var(--subtext);font-weight:600}
+
+/* ensure hero content sits flush when using .container */
+.hero-content{padding-left:0;padding-right:0}
+
+/* allow main pages to use full-width alignment */
+.main-content{padding-left:0;padding-right:0}
+
+/* ========== Features / Services ========== */
+.features{padding:56px 0;background:transparent}
+.features h2{margin-bottom:28px;color:var(--primary)}
+.feature-grid,.feature-box{display:grid;grid-template-columns:1fr;gap:18px} /* single column by request */
+.feature,.feature-card{background:var(--surface);padding:20px;border-radius:14px;box-shadow:var(--shadow);text-align:center;transition:transform .22s ease}
+.feature img,.feature-card img{max-width:120px;margin-bottom:14px;border-radius:10px;object-fit:cover}
+.feature:hover,.feature-card:hover{transform:translateY(-6px)}
+.feature h3{color:var(--primary);margin-bottom:8px}
+.feature p{color:var(--subtext);font-size:.95rem}
+
+/* ========== Order Medicine ========== */
+.order-medicine-section{padding:54px 0;background:var(--muted)}
+.medicine-results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:0 6px}
+.medicine-card{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.medicine-card h3{margin:0;color:var(--primary)}
+.medicine-card p{color:var(--subtext);font-size:.95rem}
+.medicine-card .price{font-weight:700;color:var(--accent)}
+.medicine-card .order-btn{margin-top:auto;padding:10px;border-radius:10px;border:none;background:var(--primary);color:#fff;cursor:pointer}
+
+/* ========== Consult Doctor ========== */
+.consult-section{padding:56px 0;background:transparent}
+.doctor-results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.doctor-card{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.doctor-card .doctor-image{width:100%;height:170px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+.doctor-card h3{margin:0;color:var(--primary)}
+.doctor-card .specialty{color:var(--accent);font-weight:700}
+.doctor-card .experience,.doctor-card .location{color:var(--subtext);font-size:.9rem}
+.doctor-card .book-btn{margin-top:auto;padding:10px;border-radius:10px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+
+/* ========== Upload Reports ========== */
+.upload-section{padding:56px 0;background:var(--muted);text-align:center}
+.upload-form{max-width:680px;margin:0 auto;background:var(--surface);padding:20px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.form-group{width:100%;text-align:left}
+.form-group label{display:block;color:var(--primary);font-weight:700;margin-bottom:6px}
+.form-group input[type=file],.form-group textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.06)}
+.upload-btn{padding:12px;border-radius:10px;border:none;background:var(--primary);color:#fff;cursor:pointer}
+
+/* ========== Forms / Login / Register ========== */
+.form-section,.register-section{padding:44px 0;text-align:center}
+.form-section form,.register-section form,.form-container{background:var(--surface);max-width:420px;margin:0 auto;padding:18px;border-radius:12px;box-shadow:var(--shadow);text-align:left}
+.form-section h2,.register-section h2{color:var(--primary);text-align:center;margin-bottom:12px}
+.form-section input,.register-section input,.form-container input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);margin-bottom:12px}
+.form-section button,.register-section button,.form-container button{width:100%;padding:12px;border-radius:10px;border:none;background:var(--primary);color:#fff;cursor:pointer}
+.form-section a,.register-section a{color:var(--primary);font-weight:700}
+#registerMessage,#loginMessage{margin-top:12px;font-weight:700}
+
+/* ========== Dashboard ========== */
+.dashboard-main{padding:28px 0;background:transparent}
+.dashboard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.dashboard-card{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+.quick-action-card{grid-column:1/-1}
+.dashboard-links{display:flex;gap:12px;flex-wrap:wrap}
+.dashboard-btn{background:var(--primary);color:#fff;border-radius:10px;padding:12px 16px;text-decoration:none;display:inline-flex;gap:10px;align-items:center}
+
+/* ========== Contact & Footer ========== */
+.contact-info{padding:40px 0;background:var(--primary);color:#fff;text-align:center}
+.contact-info a{color:#fff}
+footer{background:linear-gradient(90deg,var(--primary),var(--primary-600));color:#fff;padding:28px 0;text-align:center;margin-top:24px}
+
+/* ========== Misc & Utilities ========== */
+.testimonial,.review-card{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+.feature-small{display:flex;gap:12px;align-items:center}
+
+/* ========== Responsive ========== */
+@media (max-width:900px){
+  .search-box input{width:80%}
+  .hero{padding:64px 18px}
+}
+@media (max-width:600px){
+  .header-container{flex-direction:column;align-items:stretch}
+  nav ul.nav-links{flex-wrap:wrap;justify-content:center}
+  .search-box{flex-direction:column}
+  .search-box input{width:92%}
+}
+
+/* Keep legacy class names (used across pages) to avoid breaking other files */
+/* simple aliases mapping old names to the new styles */
+.feature-box{grid-template-columns:1fr}
+.medicine-results-grid{display:grid;gap:18px}
+.doctor-results-grid{display:grid;gap:18px}
+.upload-btn{background:var(--primary);color:#fff;padding:10px;border-radius:8px;border:none}
 /* Custom properties for a modern, cohesive color palette */
 :root {
     --primary-blue: #1e3a8a;       /* Deep blue, for headers and important buttons */
@@ -1282,4 +1571,588 @@ body {
     .dashboard-btn {
         width: 100%;
     }
+}
+/* ==== GENERAL STYLES ==== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7fb;
+  color: #222;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+/* ==== HEADER ==== */
+header {
+  background-color: #1e3a8a;
+  padding: 15px 0;
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.circular-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #3b82f6;
+}
+
+/* ==== HERO ==== */
+.hero {
+  background: linear-gradient(rgba(30,58,138,0.8), rgba(30,58,138,0.8)), url('hospital-bg.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin: 15px 0 25px;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ==== SEARCH SECTION ==== */
+.search-symptoms {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.search-box {
+  margin-top: 20px;
+}
+
+.search-box input {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+}
+
+.search-box button {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* ==== FEATURES ==== */
+.features {
+  background-color: #f4f7fb;
+  padding: 60px 20px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-card img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+/* ==== ABOUT SECTION ==== */
+.about {
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-img {
+  flex: 1;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-secondary {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+/* ==== REVIEWS ==== */
+.reviews {
+  background-color: #f9fafc;
+  padding: 60px 20px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ==== FOOTER ==== */
+footer {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section a {
+  color: #dbeafe;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.social-icons img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 10px;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-box input {
+    width: 80%;
+  }
+}
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  background-color: #f9fafc;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.circular-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-size: 24px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover, 
+nav ul li a.active {
+  background-color: #3b82f6;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #1e3a8a, #3b82f6);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background: white;
+  color: #1e3a8a;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #dbeafe;
+}
+
+/* Features Section */
+.features {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: #1e3a8a;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  width: 90%;
+  margin: auto;
+}
+
+.feature {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.feature h3 {
+  color: #1e3a8a;
+}
+
+/* Testimonials */
+.testimonials {
+  background-color: #f1f5f9;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.testimonials h2 {
+  margin-bottom: 40px;
+  color: #1e3a8a;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  width: 90%;
+  margin: auto;
+}
+
+.testimonial {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.testimonial p {
+  font-style: italic;
+}
+
+/* Contact Section */
+.contact-info {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.contact-info h2 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.contact-info ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #1e3a8a;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+}
+/* Navbar Styling */
+header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.circular-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Make sure links stay in one line on medium screens */
+@media (max-width: 1000px) {
+  .nav-links {
+    gap: 15px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile view stacked (optional) */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+  }
+  nav ul.nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.features {
+  padding: 30px 0;
+}
+
+.feature-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px; /* smaller gap between cards */
+  margin-top: 10px;
+}
+
+.feature {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.feature:hover {
+  transform: scale(1.03);
 }
