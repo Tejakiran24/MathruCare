@@ -238,3 +238,130 @@
         grid-template-columns: 1fr;
     }
 }
+/* --- New/Modified Styles for Navigation --- */
+
+/* 1. Remove left side space/padding on the container (ul) */
+.nav-links {
+    /* Removes the default padding-left added by browsers to <ul> elements */
+    padding-left: 0;
+    /* Ensures the list takes up its full width */
+    width: 100%;
+}
+
+/* 2. Set all in one column and decrease spaces between features */
+.nav-links li {
+    /* * Force items to stack vertically by making them full-width blocks.
+     * Original display was likely 'inline-block' or 'flex'
+     */
+    display: block; 
+    
+    /* Remove any floating or side-by-side positioning */
+    float: none; 
+    
+    /* Reduce vertical spacing between list items */
+    margin: 0; /* Remove default margin */
+    padding: 3px 0; /* Add small vertical padding for a minimal gap */
+    
+    /* Ensure no left padding/margin is inherited or added */
+    text-align: left;
+}
+
+/* Adjust the link elements (the text itself) */
+.nav-links li a {
+    /* Set text to align to the very left edge */
+    text-align: left;
+    
+    /* Make the clickable area span the full width of the li */
+    display: block; 
+    
+    /* Reduce or remove padding that might be adding vertical space */
+    padding: 5px 0 5px 20px; /* Small vertical padding, and 20px left padding for text alignment */
+    
+    /* Optional: Change text color/style to match your design */
+    color: #fff; /* Example: White text for the blue background */
+    text-decoration: none;
+}
+
+
+/* --- General/Existing styles (Add these if they are missing) --- */
+
+/* Ensures header elements are laid out correctly */
+header {
+    background-color: #004d99; /* Example dark blue background */
+    padding: 10px 0;
+}
+
+/* Ensure the main container doesn't have excessive padding/margin */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.header-container {
+    display: flex; /* Keeps the logo and nav side-by-side initially */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Styling for the Logo/Site Branding */
+.site-branding {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    color: white;
+    margin-left: 10px;
+    font-size: 1.8em;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.site-branding {
+    margin-left: 0;
+    white-space: nowrap; 
+}
+
+nav {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    align-items: center;
+    flex-wrap: nowrap; 
+}
+
+.nav-links li {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-links li a.active {
+    background-color: #3b82f6;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
