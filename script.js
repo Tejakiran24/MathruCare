@@ -166,10 +166,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         const mockDoctors = [
-            { id: 1, name: "Dr. Anya Sharma", specialty: "Cardiologist", experience: "15 yrs", image: "images/doctor1.jpg" },
-            { id: 2, name: "Dr. Rajesh Kumar", specialty: "Pediatrician", experience: "10 yrs", image: "images/doctor2.jpg" },
-            { id: 3, name: "Dr. Priya Singh", specialty: "Dermatologist", experience: "8 yrs", image: "images/doctor3.jpg" }
-        ];
+    { id: 1, name: "Dr. Anya Sharma", specialty: "Cardiologist", experience: "15 yrs", image: "images/doctor1.jpg" },
+    { id: 2, name: "Dr. Rajesh Kumar", specialty: "Pediatrician", experience: "10 yrs", image: "images/doctor2.jpg" },
+    { id: 3, name: "Dr. Priya Singh", specialty: "Dermatologist", experience: "8 yrs", image: "images/doctor3.jpg" },
+    { id: 4, name: "Dr. Teja", specialty: "Dermatologist", experience: "9 yrs", image: "images/doctor4.jpg" },
+    { id: 5, name: "Dr. Kiran", specialty: "Dermatologist", experience: "7 yrs", image: "images/doctor5.jpg" },
+    { id: 6, name: "Dr. Nani", specialty: "Dermatologist", experience: "18 yrs", image: "images/doctor6.jpg" }
+];
+
 
         const filteredDoctors = mockDoctors.filter(doc =>
             doc.name.toLowerCase().includes(query.toLowerCase()) ||
