@@ -448,28 +448,55 @@ header nav ul li a:hover {
 }
 
 /* Contact / Customer Care Section */
-.contact-info {
-    background-color: var(--secondary-blue);
-    color: var(--text-light);
-    padding: 50px 0;
+/* ============================
+   NEW FOOTER (4-COLUMN STYLE)
+   ============================ */
+
+.main-footer {
+    background-color: #152032;
+    color: #f1f1f1;
+    padding: 60px 0 20px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-column h3 {
+    color: #ffcc33;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.footer-column a {
+    display: block;
+    color: #d7e2f0;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+.footer-bottom {
     text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 15px;
+    margin-top: 40px;
 }
 
-.contact-info h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+.footer-bottom p {
+    color: #d0d0d0;
+    font-size: 14px;
 }
 
-.contact-info p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.contact-info ul {
-    list-style: none;
-    font-size: 18px;
-    line-height: 1.8;
-}
 
 /* Footer */
 footer {
