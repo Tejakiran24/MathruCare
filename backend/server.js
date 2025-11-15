@@ -169,3 +169,7 @@ app.post('/search-symptoms', (req, res) => {
 // ---------------------- SERVER START ----------------------
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on http://localcdhost:${PORT}`));
+
+
+app.use("/api/auth", require("./routes/auth"));
+
