@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathruCare | Smart Healthcare, Simplified</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- STICKY NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            MathruCare
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="medicines.html">Medicines</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+        <a href="signup.html" class="btn btn-primary">Get Started</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero fade-in">
+        <div class="hero-left">
+            <h1><span>Smart Healthcare,</span> Simplified.</h1>
+            <p>Search medicines, consult top-tier doctors, and manage your health seamlessly — all in one unified place.</p>
+            <div class="btn-group">
+                <a href="medicines.html" class="btn btn-primary">Search Medicines</a>
+                <a href="doctors.html" class="btn btn-outline">Consult Doctor</a>
+            </div>
+        </div>
+        
+        <div class="hero-right">
+            <!-- Modern abstract healthcare vector loaded directly via SVG for guaranteed beautiful render -->
+            <svg class="hero-img" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="250" cy="250" r="200" fill="#e0f2fe"/>
+                <path d="M200 150h100v100h100v100h-100v100h-100v-100h-100v-100h100v-100z" fill="#4F8CFF" opacity="0.8"/>
+                <circle cx="250" cy="250" r="40" fill="#ffffff" />
+                <path d="M245 235h10v30h-10v-30z M235 245h30v10h-30v-10z" fill="#4F8CFF"/>
+            </svg>
+
+            <!-- Floating Cards -->
+            <div class="floating-card fc-1">
+                <span>💊</span> 500+ Medicines Available
+            </div>
+            <div class="floating-card fc-2">
+                <span>👨‍⚕️</span> 24/7 Doctor Support
+            </div>
+            <div class="floating-card fc-3">
+                <span>🚀</span> Fast Delivery
+            </div>
+        </div>
+    </header>
+
+    <!-- SEARCH BAR SECTION -->
+    <div class="search-bar-container fade-in">
+        <div class="modern-search">
+            <span>🔍</span>
+            <input type="text" placeholder="Search for medicines, symptoms, or doctors...">
+            <button>Search</button>
+        </div>
+    </div>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section fade-in">
+        <h2 class="section-title">Why Choose MathruCare?</h2>
+        <p class="section-subtitle">Premium utilities designed for your extreme convenience.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Medicine Search</h3>
+                <p>Instantly query our database by name or symptom to find exact medicinal matches.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍⚕️</div>
+                <h3>Doctor Consultation</h3>
+                <p>Book virtual appointments with highly rated specialists immediately.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Easy Ordering</h3>
+                <p>Check out with a single click. Prescriptions delivered right to your door.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Health Dashboard</h3>
+                <p>Keep track of orders, prescriptions, appointments, and vitals in one place.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works fade-in">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Simplified three-step process.</p>
+        
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Search Medicine</h4>
+                <p>Type symptoms or medicine name.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Place Order / Book</h4>
+                <p>Confirm your health request online.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Track & Manage</h4>
+                <p>Monitor everything on your dashboard.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS COUNTERS -->
+    <section class="stats-section fade-in">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h2 class="counter" data-target="10000">0</h2>
+                <p>Happy Users</p>
+            </div>
+            <div class="stat-box">
+                <h2 class="counter" data-target="500">0</h2>
+                <p>Medicines</p>
+            </div>
+            <div class="stat-box">
+                <h2 class="counter" data-target="100">0</h2>
+                <p>Verified Doctors</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials fade-in">
+        <h2 class="section-title">Patient Testimonials</h2>
+        <p class="section-subtitle">Reviews from the MathruCare community.</p>
+        
+        <div class="testimonial-grid">
+            <div class="review-card">
+                <p>"Absolutely amazing platform. I searched 'headache' and instantly ordered the best recommendations. Arrived fast!"</p>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/100?img=1" alt="User">
+                    <div>
+                        <h4 style="color: var(--text-dark);">Sarah J.</h4>
+                        <span style="color: #f59e0b;">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <p>"I love the dashboard feature! Allows me to track my family's appointments seamlessly."</p>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/100?img=11" alt="User">
+                    <div>
+                        <h4 style="color: var(--text-dark);">David M.</h4>
+                        <span style="color: #f59e0b;">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 style="margin-bottom: 1rem;">MathruCare</h3>
+                <p style="color: #9ca3af; margin-bottom: 1rem;">Smart Healthcare, Simplified.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">support@mathrucare.com</a></li>
+                    <li><a href="#">+1 800-456-7890</a></li>
+                    <li><a href="#">Live Chat</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Twitter/X</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MathruCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

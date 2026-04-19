@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MathruCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <svg width="34" height="34" viewBox="0 0 100 100" class="logo-icon">
+                <defs>
+                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#3b82f6"/>
+                        <stop offset="100%" stop-color="#8b5cf6"/>
+                    </linearGradient>
+                    <filter id="glow-logo">
+                        <feGaussianBlur stdDeviation="4" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                </defs>
+                <path d="M50 85 C 20 60, 10 35, 25 20 C 35 10, 45 20, 50 30 C 55 20, 65 10, 75 20 C 90 35, 80 60, 50 85 Z" fill="url(#logoGrad)" filter="url(#glow-logo)" opacity="0.9"/>
+                <path d="M44 42 H 56 V 49 H 63 V 59 H 56 V 66 H 44 V 59 H 37 V 49 H 44 V 42 Z" fill="#ffffff" style="transform-origin: center; animation: pulseCross 2s infinite ease-in-out;"/>
+            </svg>
+            <span class="logo-text">MathruCare</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="medicines.html">Medicines</a></li>
+            <li><a href="doctors.html">Consult Doctor</a></li>
+            <li><a href="reports.html">Analyze Reports</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 style="color: var(--primary-color);">My Personal Dashboard</h2>
+        
+        <!-- BMI Calculator -->
+        <div class="card-form" style="margin: 2rem 0; max-width: 100%;">
+            <h3>BMI Calculator</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-light);">Calculate your Body Mass Index quickly.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div class="form-group" style="flex: 1;">
+                    <label>Height (cm)</label>
+                    <input type="number" id="bmi_height" class="form-input" placeholder="e.g. 175">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="bmi_weight" class="form-input" placeholder="e.g. 70">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="calculateBMI()">Calculate BMI</button>
+            <div id="bmi-result" class="bmi-result"></div>
+        </div>
+
+        <!-- Dashboard Data -->
+        <div class="dashboard-grid">
+            <div class="dashboard-section">
+                <h2>My Orders</h2>
+                <ul id="orders-list" class="data-list">
+                    <li>Loading orders...</li>
+                </ul>
+            </div>
+            
+            <div class="dashboard-section">
+                <h2>My Appointments</h2>
+                <ul id="appointments-list" class="data-list">
+                    <li>Loading appointments...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="customer-care">
+        <div class="care-content">
+            <h2>Need Help? We're Here 24/7</h2>
+            <p>Talk to our medical professionals or customer support team anytime.</p>
+            <div class="contact-methods">
+                <div class="contact-box">📞 +1 (800) 123-4567</div>
+                <div class="contact-box">✉️ support@mathrucare.com</div>
+                <div class="contact-box">💬 Live Chat Support</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MathruCare. All rights reserved.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Load dashboard data on page lead
+        loadDashboardData();
+    </script>
+</body>
+</html>

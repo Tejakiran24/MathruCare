@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines - MathruCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <svg width="34" height="34" viewBox="0 0 100 100" class="logo-icon">
+                <defs>
+                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#3b82f6"/>
+                        <stop offset="100%" stop-color="#8b5cf6"/>
+                    </linearGradient>
+                    <filter id="glow-logo">
+                        <feGaussianBlur stdDeviation="4" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                </defs>
+                <path d="M50 85 C 20 60, 10 35, 25 20 C 35 10, 45 20, 50 30 C 55 20, 65 10, 75 20 C 90 35, 80 60, 50 85 Z" fill="url(#logoGrad)" filter="url(#glow-logo)" opacity="0.9"/>
+                <path d="M44 42 H 56 V 49 H 63 V 59 H 56 V 66 H 44 V 59 H 37 V 49 H 44 V 42 Z" fill="#ffffff" style="transform-origin: center; animation: pulseCross 2s infinite ease-in-out;"/>
+            </svg>
+            <span class="logo-text">MathruCare</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="medicines.html" class="active">Medicines</a></li>
+            <li><a href="doctors.html">Consult Doctor</a></li>
+            <li><a href="reports.html">Analyze Reports</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Search and Order Medicines</h2>
+        
+        <div class="search-container">
+            <input type="text" id="medicineSearchInput" class="form-input" placeholder="Enter medicine name...">
+            <button onclick="fetchMedicines()" class="btn btn-primary">Search</button>
+        </div>
+
+        <div id="medicines-grid" class="grid-layout">
+            <!-- Medicine cards will appear here -->
+        </div>
+
+        <!-- Order Form Modal/Section (Hidden by default) -->
+        <div id="order-section" class="card-form" style="display: none; margin-top: 3rem;">
+            <h3>Place Order for: <span id="selected-medicine-name" style="color: var(--primary-color);"></span></h3>
+            <div id="order-alert" class="alert"></div>
+            
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <input type="hidden" id="medicine_id">
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="order_name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="order_phone" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <textarea id="order_address" class="form-input" rows="3" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Order</button>
+                <button type="button" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" onclick="cancelOrder()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="customer-care">
+        <div class="care-content">
+            <h2>Need Help? We're Here 24/7</h2>
+            <p>Talk to our medical professionals or customer support team anytime.</p>
+            <div class="contact-methods">
+                <div class="contact-box">📞 +1 (800) 123-4567</div>
+                <div class="contact-box">✉️ support@mathrucare.com</div>
+                <div class="contact-box">💬 Live Chat Support</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MathruCare. All rights reserved.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Check if there is a query param from the homepage
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('query');
+        if (query) {
+            document.getElementById('medicineSearchInput').value = query;
+        }
+        
+        // Initial fetch
+        fetchMedicines();
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consult Doctor - MathruCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <svg width="34" height="34" viewBox="0 0 100 100" class="logo-icon">
+                <defs>
+                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#3b82f6"/>
+                        <stop offset="100%" stop-color="#8b5cf6"/>
+                    </linearGradient>
+                    <filter id="glow-logo">
+                        <feGaussianBlur stdDeviation="4" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                </defs>
+                <path d="M50 85 C 20 60, 10 35, 25 20 C 35 10, 45 20, 50 30 C 55 20, 65 10, 75 20 C 90 35, 80 60, 50 85 Z" fill="url(#logoGrad)" filter="url(#glow-logo)" opacity="0.9"/>
+                <path d="M44 42 H 56 V 49 H 63 V 59 H 56 V 66 H 44 V 59 H 37 V 49 H 44 V 42 Z" fill="#ffffff" style="transform-origin: center; animation: pulseCross 2s infinite ease-in-out;"/>
+            </svg>
+            <span class="logo-text">MathruCare</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="medicines.html">Medicines</a></li>
+            <li><a href="doctors.html" class="active">Consult Doctor</a></li>
+            <li><a href="reports.html">Analyze Reports</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Book an Appointment</h2>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 3rem; justify-content: center;">
+            <!-- Doctors List -->
+            <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                <h3 style="margin-bottom: 1rem;">Available Specialists</h3>
+                <div class="grid-layout" style="grid-template-columns: 1fr;">
+                    <div class="item-card">
+                        <h3>Dr. Sarah Jenkins</h3>
+                        <p><strong>Specialty:</strong> General Physician</p>
+                        <p>Experience: 10 Years</p>
+                        <button class="btn btn-secondary btn-sm" onclick="selectDoctor('General Physician')">Book General</button>
+                    </div>
+                    <div class="item-card">
+                        <h3>Dr. Michael Chen</h3>
+                        <p><strong>Specialty:</strong> Cardiologist</p>
+                        <p>Experience: 15 Years</p>
+                        <button class="btn btn-secondary btn-sm" onclick="selectDoctor('Cardiologist')">Book Cardiology</button>
+                    </div>
+                    <div class="item-card">
+                        <h3>Dr. Emily Watson</h3>
+                        <p><strong>Specialty:</strong> Dermatologist</p>
+                        <p>Experience: 8 Years</p>
+                        <button class="btn btn-secondary btn-sm" onclick="selectDoctor('Dermatologist')">Book Dermatology</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="card-form" style="flex: 1; min-width: 300px;">
+                <h3 style="margin-bottom: 1.5rem;">Appointment Details</h3>
+                <div id="booking-alert" class="alert"></div>
+                <form id="bookingForm" onsubmit="bookAppointment(event)">
+                    <div class="form-group">
+                        <label>Patient Name</label>
+                        <input type="text" id="doc_name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Doctor Specialty</label>
+                        <select id="doc_type" class="form-input" required>
+                            <option value="">Select Specialty</option>
+                            <option value="General Physician">General Physician</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Appointment</label>
+                        <input type="date" id="doc_date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Describe the Problem</label>
+                        <textarea id="doc_problem" class="form-input" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="customer-care">
+        <div class="care-content">
+            <h2>Need Help? We're Here 24/7</h2>
+            <p>Talk to our medical professionals or customer support team anytime.</p>
+            <div class="contact-methods">
+                <div class="contact-box">📞 +1 (800) 123-4567</div>
+                <div class="contact-box">✉️ support@mathrucare.com</div>
+                <div class="contact-box">💬 Live Chat Support</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MathruCare. All rights reserved.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        function selectDoctor(type) {
+            document.getElementById('doc_type').value = type;
+            document.getElementById('doc_name').focus();
+        }
+    </script>
+</body>
+</html>
