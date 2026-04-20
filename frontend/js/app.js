@@ -301,7 +301,8 @@ async function handleFileUpload(event) {
     const grid = document.getElementById('recommended-meds-grid');
     
     statusEl.style.display = 'block';
-    statusEl.textContent = 'Uploading and analyzing report using AI... Please wait... ⏳';
+    statusEl.textContent = 'Analyzing medical report securely with AI... ⏳';
+    document.getElementById('loading-spinner').style.display = 'block';
     resultSec.style.display = 'none';
 
     const formData = new FormData();
@@ -316,7 +317,16 @@ async function handleFileUpload(event) {
         const data = await response.json();
         if (response.ok) {
             statusEl.textContent = 'Analysis Complete! ✅';
+            document.getElementById('loading-spinner').style.display = 'none';
             textEl.textContent = data.analysis;
+            
+            const metricsEl = document.getElementById('analysis-metrics');
+            if (metricsEl && data.metrics) {
+                metricsEl.innerHTML = '';
+                for (const [key, value] of Object.entries(data.metrics)) {
+                    metricsEl.innerHTML += `<div><strong style="color: var(--secondary);">${key}:</strong> ${value}</div>`;
+                }
+            }
             
             grid.innerHTML = '';
             if(data.recommended_medicines.length === 0) {
@@ -359,7 +369,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in, .customer-care, footer').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
 
     // Stats Counter Animation
     const counters = document.querySelectorAll('.counter');
